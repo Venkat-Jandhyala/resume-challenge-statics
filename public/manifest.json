@@ -1,0 +1,9 @@
+{
+  "short_name": "Purna's Resume",
+  "name": "Purna's online resume",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

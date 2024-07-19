@@ -1,0 +1,30 @@
+html { font-size: 10px; }
+
+body {
+  font-family:'Montserrat', 'Segoe UI', 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  font-size: 1.6rem;
+  
+  section {
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-left: 5px solid #333;
+  }
+  
+  ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  .contact-info {
+    margin-bottom: 20px;
+  }
+}
