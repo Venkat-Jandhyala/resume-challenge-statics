@@ -34,9 +34,13 @@ jobs:
         docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/resume-challenge-spa:$GITHUB_SHA
         docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/resume-challenge-spa:latest
 
+    - name: Set Cloud Run region
+      run: |
+        gcloud config set run/region europe-west2
+
     - name: Deploy to Cloud Run
       run: |
-        gcloud run deploy my-app \
+        gcloud run deploy resume-challenge-spa \
           --image gcr.ip/${{ secrets.GCP_PROJECT_ID }}/resume-challenge-spa:latest
           --platform managed
           --region europe-west2
