@@ -1,5 +1,5 @@
 # get node version
-FROM node:14 AS build
+FROM node:18.15.0-alpine AS build
 #set /app as working directory
 WORKDIR /app
 #copy package.json from code base to app
@@ -10,11 +10,11 @@ RUN npm install
 COPY . .
 #run npm build
 RUN npm run build
-# get nginx:apline server
-FROM nginx:alpine
-#from node build push build folder to nginx/html (nginx webroot)
-COPY --from=build /app/build /usr/share/nginx/html
-# expose http and https on the container
-EXPOSE 8080
-# once everything is set run daemon off, as we can run this using docker run -d command
-CMD ["nginx", "-g", "daemon off;"]
+
+RUN npm install -g serve
+
+ENV PORT=8080
+
+# CMD ["sh", "-c", "echo $PORT && serve -s build -l $PORT"]
+# Serve the build
+CMD ["npx", "serve", "-s", "build", "-l", "${PORT}"]
