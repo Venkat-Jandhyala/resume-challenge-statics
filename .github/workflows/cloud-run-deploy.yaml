@@ -37,6 +37,10 @@ jobs:
     - name: Set Cloud Run region
       run: |
         gcloud config set run/region europe-west2
+    
+    - name: Set project region
+      run: |
+        gcloud config set project ${{ secrets.GCP_PROJECT_ID }}
 
     - name: Deploy to Cloud Run
       run: |
