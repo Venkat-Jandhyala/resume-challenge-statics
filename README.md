@@ -68,3 +68,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## GCP steps 
+### To main service account
+roles/artifactregistry.createOnPushWriter
+roles/artifactregistry.writer
+roles/run.admin
+  
+### To default compute@developer service account add newly created service account as member with below role
+roles/iam.serviceAccountUser
