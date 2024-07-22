@@ -70,11 +70,19 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 
+##Dockerfile 
+- create nginx.conf which would take in the __PORT__ from the env variable
+- replace /etc/nginx/nginx.conf with the local conf
+- create a starter script which will replace __PORT__ in the conf file with env port number which is 8080 in case of GCP.
+- execute nging -g deamon off;
+- use the stater script as default command
+
+
 ## GCP steps 
 ### To main service account
-roles/artifactregistry.createOnPushWriter
-roles/artifactregistry.writer
-roles/run.admin
+- roles/artifactregistry.createOnPushWriter
+- roles/artifactregistry.writer
+- roles/run.admin
   
 ### To default compute@developer service account add newly created service account as member with below role
-roles/iam.serviceAccountUser
+- roles/iam.serviceAccountUser
