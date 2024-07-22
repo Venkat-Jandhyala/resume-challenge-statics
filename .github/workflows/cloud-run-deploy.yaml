@@ -46,6 +46,6 @@ jobs:
       run: |
         gcloud run deploy resume-challenge-spa \
           --image gcr.io/${{ secrets.GCP_PROJECT_ID }}/resume-challenge-spa:latest
-          --platform managed
-          --region europe-west2
           --allow-unauthenticated
+          --region europe-west2
+          --platform managed
