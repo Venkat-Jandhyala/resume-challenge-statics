@@ -16,6 +16,8 @@ FROM nginx:alpine
 COPY --from=build /app/build /usr/share/nginx/html
 # Copy custom NGINX configuration file
 COPY nginx.conf /etc/nginx/nginx.conf
+# Copy SSL cert for validation
+COPY A4309CDE2D3E79929C61C284BB594E2C.txt /usr/share/nginx/html/.well-known/pki-validation
 # Copy the startup script
 COPY start-nginx.sh /usr/bin/start-nginx.sh
 RUN chmod +x /usr/bin/start-nginx.sh
