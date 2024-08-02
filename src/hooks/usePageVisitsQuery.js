@@ -7,10 +7,11 @@ export const usePageVisitsQuery = () => {
   const [query, setQuery] = useState({});
 
   const pageVisits = useQuery({
-    queryKey: ['pageVisits', Date.now()],
+    queryKey: ['pageVisits'],
     queryFn: () => updatePageVisits(),
-    enabled: isEmpty(query),
+    enabled: !isEmpty(query),
     cacheTime: Infinity,
+    refetchOnWindowFocus: false,
   });
 
   const updateVisitCount = useCallback(() => {
