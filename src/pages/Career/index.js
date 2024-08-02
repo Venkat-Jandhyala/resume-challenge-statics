@@ -5,7 +5,7 @@ import { values } from "lodash";
 
 import { PageTitle } from "../../components/PageTitle";
 import { removeHashCharacter, useScrollToHash } from "../../hooks/useScrollToHash";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { layoutStyles } from "../../styles";
 import styled from "styled-components";
 import { BaseStyledLink } from "../../components/Navigation";
@@ -46,12 +46,12 @@ export const Career = () => {
   const projElement = useRef(null);
   const { hash } = useLocation();
 
-  const sideNav = {
+  const sideNav = useMemo(() => ({
     education: {id: "education", label: "Education", refEle: eduElement},
     certifications: {id: "certifications", label: "Certifications", refEle: certElement},
     experience: {id: "experience", label: "Professional Experience", refEle: expElement},
     projects: {id: "projects", label: "Projects", refEle: projElement}
-  };
+  }), []);
   const [scrolledSection, setScrolledSection] = useState(
     removeHashCharacter(hash) || sideNav.education.id
   );

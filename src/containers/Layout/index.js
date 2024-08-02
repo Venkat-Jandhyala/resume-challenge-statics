@@ -1,13 +1,21 @@
 import { Outlet } from 'react-router-dom';
-import { Flex } from 'rebass';
+import { Flex, Text } from 'rebass';
 
 import { Navigation } from '../../components/Navigation';
 import { CopyRight } from '../../components/CopyRight';
 import { NavBrand } from '../../components/NavBrand';
 
 import { layoutStyles } from '../../styles';
+import { usePageVisitsQuery } from '../../hooks/usePageVisitsQuery';
+import { useEffect } from 'react';
 
 export const Layout = () => {
+  const { data, updateVisitCount } = usePageVisitsQuery();
+
+  useEffect(() => {
+    updateVisitCount();
+  }, [updateVisitCount]);
+
   return (
     <>
       <Flex flexDirection={'column'}>
@@ -46,6 +54,7 @@ export const Layout = () => {
           }}
         >
           <CopyRight />
+          { !!data?.visits && <Text as='p'>{`No. page visits - ${data?.visits}`}</Text> }
         </Flex>
       </Flex>
     </>
